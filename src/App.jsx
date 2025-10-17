@@ -37,9 +37,31 @@ import React, { useState, useEffect, use } from "react";
 
 
 export default function App(){
+  const [counterVisible, setCounterVisible] = useState(true);
+  //conditional rendering
+  useEffect(function() {
+   let clock = setInterval(function(){
+      setCounterVisible(count=>!count)
+    }, 5000);
+
+    return function() {
+      clearInterval(clock)
+      // Clear any intervals or timeouts here if needed
+    }
+  }, []);
+  
   return <div>
-    <Counter />
+    {counterVisible && <Counter></Counter>}
+
+
+    <button onClick={() => {setCounterVisible(true);}}>Show Counter</button>
+    <button onClick={() => {setCounterVisible(false);}}>Hide Counter</button>
+   
+
+
+    {/* <Counter /> */}
   </div>;
+  
 }
 
 function Counter(){
@@ -68,11 +90,25 @@ function Counter(){
   // }
 
 
+  //   function visible(){
+  //   counterVisible = true;
+  // }
+
+  // function hide(){
+  //   counterVisible = false;
+  // }
+
+
 
   return <div>
     <h1>  {count} </h1>
     {/* <button onClick={increment}>Increment</button>
     <button onClick={decrement}>Decrement</button>
-    <button onClick={reset}>Reset</button> */}
-  </div>
+    <button onClick={reset}>Reset</button> */
+    // <div>
+    //   <button onClick={visible}>visible</button>
+    //   <button onClick={hide}>hide</button>
+    // </div>
+    }
+  </div>;
 }
