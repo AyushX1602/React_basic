@@ -2,38 +2,38 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 
 
-export default function App() {
-  const [notifications,setNotifications] = useState(0);
+// export default function App() {
+//   const [notifications,setNotifications] = useState(0);
 
-  useEffect(function() {
-    const clock = setInterval(function(){
-      setNotifications(prevNotifications => prevNotifications + 1 );
-    }, 5000);
+//   useEffect(function() {
+//     const clock = setInterval(function(){
+//       setNotifications(prevNotifications => prevNotifications + 1 );
+//     }, 5000);
     
-        return function() {
-      clearInterval(clock)
-      // Clear any intervals or timeouts here if needed
-    };
+//         return function() {
+//       clearInterval(clock)
+//       // Clear any intervals or timeouts here if needed
+//     };
 
 
-  }, []);
+//   }, []);
 
       
 
-  function AddNotification(){
-    console.log("Notification added");
-    setNotifications(prevNotifications => prevNotifications + 1);
-  }
+//   function AddNotification(){
+//     console.log("Notification added");
+//     setNotifications(prevNotifications => prevNotifications + 1);
+//   }
 
-  return (
-    <div>
-      <button onClick={AddNotification}>Add Notification</button>
-      <h1>Notifications: {notifications}</h1>
-      {notifications > 0 && <div>You have {notifications} notifications!</div>}
-    </div>
-  );
+//   return (
+//     <div>
+//       <button onClick={AddNotification}>Add Notification</button>
+//       <h1>Notifications: {notifications}</h1>
+//       {notifications > 0 && <div>You have {notifications} notifications!</div>}
+//     </div>
+//   );
 
-}
+// }
 
 
 
@@ -148,3 +148,31 @@ export default function App() {
 //     }
 //   </div>;
 // }
+
+
+
+
+
+//Children
+
+function App(){
+  return <div style={{display :"flex",background:"grey"}}>
+  <Card >
+<div  style={{color:"black"}}>
+what do you want to post <br></br>
+<input type={"text"} />
+</div>
+    </Card>
+    <Card>
+      Hi there
+    </Card>
+  </div>
+}
+
+function Card({children}) {
+  return <div style={{background:"white",borderRadius:10,color:"blue",padding:10,margin:10}}>
+    {children}
+  </div>
+}
+
+export default App
