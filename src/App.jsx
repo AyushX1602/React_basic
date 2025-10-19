@@ -155,24 +155,24 @@ import React, { useState, useEffect } from "react";
 
 //Children
 
-function App(){
-  return <div style={{display :"flex",background:"grey"}}>
-  <Card >
-<div  style={{color:"black"}}>
-what do you want to post <br></br>
-<input type={"text"} />
-</div>
-    </Card>
-    <Card>
-      Hi there
-    </Card>
-  </div>
-}
+// function App(){
+//   return <div style={{display :"flex",background:"grey"}}>
+//   <Card >
+// <div  style={{color:"black"}}>
+// what do you want to post <br></br>
+// <input type={"text"} />
+// </div>
+//     </Card>
+//     <Card>
+//       Hi there
+//     </Card>
+//   </div>
+// }
 
-function Card({children}) {
-  return <div style={{background:"white",borderRadius:10,color:"blue",padding:10,margin:10}}>
-    {children}
-  </div>
-}
+// function Card({children}) {
+//   return <div style={{background:"white",borderRadius:10,color:"blue",padding:10,margin:10}}>
+//     {children}
+//   </div>
+// }
 
-export default App
+// export default App
