@@ -1,5 +1,5 @@
 import { useRef, useState, createContext, useContext } from "react";
-import './App.css';
+import { usePrev } from "./hooks/usePrev";
 import { useFetch } from "./hooks/useFetch";
 
 // const BulbContext = createContext();
@@ -15,11 +15,11 @@ import { useFetch } from "./hooks/useFetch";
 // }
 
 // function App(){
- 
+
 //   return <div>
 // <BulbProvider>
 //   <LightBulb />
-//   <ToggleLightState /> 
+//   <ToggleLightState />
 // </BulbProvider>
 
 //   </div>
@@ -58,15 +58,24 @@ import { useFetch } from "./hooks/useFetch";
 //   </div>
 // }
 
-
 function App() {
-  const {finaldata} = useFetch("https://jsonplaceholder.typicode.com/todos/1");
+  //   const {finaldata} = useFetch("https://jsonplaceholder.typicode.com/todos/1");
 
+  //   return (
+  //     <div>
+  //       {JSON.stringify(finaldata)}
+  //     </div>
+  //   )
+  // }
+  const [state, setState] = useState(0);
+  const prev = usePrev(state);
   return (
-    <div>
-      {JSON.stringify(finaldata)}
-    </div>
-  )
+    <>
+      <div>{state}</div>
+      <button onClick={() => setState(state + 1)}>Increment</button>
+      <div>Previous State: {prev}</div>
+    </>
+  );
 }
 
 export default App;
