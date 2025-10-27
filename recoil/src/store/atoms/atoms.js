@@ -1,14 +1,21 @@
 import { atom, selector } from 'recoil';
 
-export const countState = atom({
-    key: "counter",
-    default: 0,
+export const networkAtom = atom ({
+    key : "networkAtom",
+    default : 102
 });
-export const evenSelector = selector ({
-    key : "isEvenSelector",
-    get: function ({get}){
-        const currentCount = get (countState);
-        return currentCount % 2 == 0;
-        
-    }
+
+export const jobsAtom = atom ({
+    key : "jobsAtom",
+    default : 0
+});
+
+export const messagingAtom = atom ({
+    key : "messagingAtom",
+    default : 12
+});
+
+export const notificationsAtom = atom ({
+    key : "notificationsAtom",
+    default : 0
 });
